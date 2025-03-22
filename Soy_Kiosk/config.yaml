@@ -1,4 +1,4 @@
-name: Soy Kiosk
+name: "Soy Kiosk"
 version: "1.2.8"
 slug: SoyKiosk
 description: Provides A Kiosk Mode
@@ -6,5 +6,3 @@ url: "https://github.com/Soy-HA/HA-Addons/tree/main/Soy_Kiosk"
 arch:
   - amd64
 init: false
-options:
-schema: 
