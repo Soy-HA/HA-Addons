@@ -10,16 +10,7 @@ arch:
   - aarch64
   - amd64
   - i386
-init: false
-map:
-  - share:rw
-options:
-  url: "http://homeassistant.local"
-  client-key: ""
-schema:
-  url: "str?"
-  client-key: "str?"
-#image: "ghcr.io/home-assistant/{arch}-Soy-Kiosk"
+
 
 
 
