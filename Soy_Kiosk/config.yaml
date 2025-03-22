@@ -1,9 +1,9 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
-name: Example add-on
-version: "1.2.0"
-slug: example
-description: Example add-on
-url: "https://github.com/home-assistant/addons-example/tree/main/example"
+name: Soy Kiosk
+version: "0.0.1"
+slug: soyKiosk
+description: Provides A Kiosk Mode
+url: "https://github.com/Soy-HA/HA-Addons/Soy_Kiosk"
 arch:
   - armhf
   - armv7
@@ -15,6 +15,10 @@ map:
   - share:rw
 options:
   message: "Hello world..."
+  url: "http://homeassistant.local"
+  client-key: ""
 schema:
   message: "str?"
-image: "ghcr.io/home-assistant/{arch}-addon-example"
+  url: "str?"
+  client-key "str?"
+image: "ghcr.io/home-assistant/{arch}-Soy-Kiosk"

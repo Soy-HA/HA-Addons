@@ -1,4 +1,4 @@
 # https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
-name: Example Home Assistant add-on repository
-url: 'https://https://github.com/Soy-HA/Ha-Testing'
+name: Soys Repository of HomeAssistant Addons 
+url: 'https://https://github.com/Soy-HA/Ha-Addons'
 maintainer: Soy<Soy_GH@randomspazz.com>
