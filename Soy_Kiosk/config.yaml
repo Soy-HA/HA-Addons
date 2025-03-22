@@ -13,14 +13,7 @@ arch:
 init: false
 map:
   - share:rw
-options:
-  message: "Hello world..."
-  url: "http://homeassistant.local"
-  client-key: ""
-schema:
-  message: "str?"
-  url: "str?"
-  client-key: "str?"
+
 #image: "ghcr.io/home-assistant/{arch}-Soy-Kiosk"
-image: "ghcr.io/home-assistant/{arch}-addon-example"
+
 
