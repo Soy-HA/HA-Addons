@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Soy Kiosk
-version: "0.0.2"
+version: "1.2.0"
 slug: soyKiosk
 description: Provides A Kiosk Mode
 url: "https://github.com/Soy-HA/HA-Addons/Soy_Kiosk"
@@ -13,7 +13,14 @@ arch:
 init: false
 map:
   - share:rw
-
+options:
+  message: "Hello world..."
+  url: "http://homeassistant.local"
+  client-key: ""
+schema:
+  message: "str?"
+  url: "str?"
+  client-key: "str?"
 #image: "ghcr.io/home-assistant/{arch}-Soy-Kiosk"
 
 
