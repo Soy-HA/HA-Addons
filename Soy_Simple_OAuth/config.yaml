@@ -1,9 +1,9 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Soy Simple OAuth
 version: "1.2.0"
-slug: example
-description: Example add-on
-url: "https://github.com/home-assistant/addons-example/tree/main/example"
+slug: soySimpleOAuth
+description: Simple OAuth To Allow HomeAssistant Login Usage
+url: "https://github.com/Soy-HA/HA-Addons/Soy_Kiosk"
 arch:
   - armhf
   - armv7
