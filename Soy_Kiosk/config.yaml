@@ -1,6 +1,6 @@
-name: "Soy_Kiosk"
-version: "1.2.7"
-slug: "Soy_Kiosk"
+name: Soy_Kiosk
+version: "SoyKiosk:1.2.7"
+slug: Soy_Kiosk
 description: "Provides A Kiosk Mode"
 url: "https://github.com/Soy-HA/HA-Addons/"
 arch:
