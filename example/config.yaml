@@ -1,5 +1,5 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
-name: Soy Simple OAuth
+name: Add-On Template
 version: "1.2.0"
 slug: example
 description: Example add-on
