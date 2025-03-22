@@ -21,4 +21,4 @@ schema:
   message: "str?"
   url: "str?"
   client-key "str?"
-#image: "ghcr.io/home-assistant/{arch}-Soy-Kiosk"
+image: "ghcr.io/home-assistant/{arch}-Soy-Kiosk"
