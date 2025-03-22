@@ -4,9 +4,9 @@ FROM $BUILD_FROM
 
 WORKDIR /SoyOAuth
 
-RUN apk --no-cache add gcc musl-dev git sqlite-dev curl jq
+RUN apk --no-cache 
 RUN mkdir -p /SoyOAuth
 
 
 # Set the entrypoint script
-CMD ["echo 'hi'"]
+CMD [""]
