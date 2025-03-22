@@ -2,6 +2,11 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
+LABEL \
+  io.hass.version="2025.3.4" \
+  io.hass.type="addon" \
+  io.hass.arch="armhf|aarch64|i386|amd64"
+
 # Execute during the build of the image
 ARG TEMPIO_VERSION BUILD_ARCH
 RUN \
