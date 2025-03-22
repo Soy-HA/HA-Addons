@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Soy Kiosk
-version: "0.0.1"
+version: "0.0.2"
 slug: soyKiosk
 description: Provides A Kiosk Mode
 url: "https://github.com/Soy-HA/HA-Addons/Soy_Kiosk"
