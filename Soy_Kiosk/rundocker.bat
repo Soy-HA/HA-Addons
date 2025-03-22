@@ -1,0 +1,1 @@
+docker run --rm --privileged -v ~/.docker:/root/.docker   ghcr.io/home-assistant/amd64-builder:latest --all -t addon-folder -r https://github.com/Soy-HA/Soy_Kiosk -b main
