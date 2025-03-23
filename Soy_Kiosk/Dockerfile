@@ -1,6 +1,6 @@
 FROM golang:latest as builder 
 WORKDIR /
-COPY go.mod go.sum ./
+COPY --from=goland:latest /usr/local/go/go.sum /usr/local/go/go.mod ./
 RUN go mod download
 COPY . .
 RUN go build -o /out/main .
