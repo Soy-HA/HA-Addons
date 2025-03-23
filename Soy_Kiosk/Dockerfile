@@ -18,5 +18,4 @@ RUN chmod a+x /app/setupgo.sh
 COPY OAuth.go OAuth.go /app/OAuth.go
 RUN chmod a+x /app/OAuth.go
 
- COPY --from=builder /out/main .
 CMD [ "./app/setupgo.sh" ]
