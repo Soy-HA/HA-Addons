@@ -12,3 +12,6 @@ arch:
 startup: services
 ports:
   8080/tcp: 8080
+map:
+    - type: data
+      read_only: False
