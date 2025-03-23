@@ -5,11 +5,11 @@ FROM $BUILD_FROM
 RUN \
   apk add --no-cache
   
-COPY --from=golang:1.13-alpine /usr/local/go/ /data/go/
-ENV GOPATH "/data/go/" 
-ENV GOROOT "/data/go/" 
+COPY --from=golang:1.13-alpine /usr/local/go/ /usr/local/go/
+ENV GOPATH "/usr/local/go/" 
+ENV GOROOT "/usr/local/go/" 
 ENV GOCACHE "/data/go/cache/" 
-ENV PATH "/data/go/bin:$PATH"
+ENV PATH "/usr/local/go/bin:$PATH"
 
 # Copy data for add-on
 COPY setupgo.sh /

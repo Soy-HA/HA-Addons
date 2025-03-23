@@ -1,5 +1,6 @@
 echo "Running Set Up Go"
-mkdir "/data/go/cache"
+mkdir "./data/go/"
+mkdir "./data/go/cache"
 go version
 go build OAuth.go
 ls
