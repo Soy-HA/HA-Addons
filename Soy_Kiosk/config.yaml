@@ -14,7 +14,11 @@ map:
 options:
     home_assistant_location: "http://homeassistant.local"
     allow_outside_connections: False
+    default_dashboard: "kiosk"
+    kiosk_account_access_token: ""
 schema:
     home_assistant_location: url
     allow_outside_connections: bool
+    default_dashboard: "str?"
+    kiosk_account_access_token: "str?"
     
