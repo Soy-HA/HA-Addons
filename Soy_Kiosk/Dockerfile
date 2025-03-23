@@ -12,5 +12,5 @@ RUN curl -LO "https://go.dev/dl/go1.24.1.src.tar.gz"
 # Copy data for add-on
 COPY setupgo.sh OAuth.go /app/
 RUN chmod a+x /app/setupgo.sh
-
-CMD [ "./app/setupgo.sh" ]
+RUN LS
+CMD [ "./setupgo.sh" ]
