@@ -15,5 +15,6 @@ WORKDIR /data
 # Copy data for add-on
 COPY run.sh /
 RUN chmod a+x /run.sh
+RUN chmod a+x /setupgo.sh
 
 CMD [ "/run.sh" ]
