@@ -7,11 +7,15 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
+    w.WriteHeader(http.StatusNotFound)
+	fmt.Fprint(w, "Page not found")
 }
 
 func oAuthHandler(w http.ResponseWriter, r *http.Request) {
     title := r.URL.Path[len("/OAuth/"):]
+	//need authorize
+	//need token
+	//need user info
     fmt.Fprintf(w, "<h1>test</h1><div>%s</div>", title)
 }
 

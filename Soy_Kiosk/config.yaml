@@ -11,3 +11,10 @@ ports:
 map:
     - type: data
       read_only: False
+options:
+    home_assistant_location: "http://homeassistant.local"
+    allow_outside_connections: False
+schema:
+    home_assistant_location: url
+    allow_outside_connections: bool
+    
