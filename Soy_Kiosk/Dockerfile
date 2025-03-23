@@ -8,7 +8,7 @@ RUN \
   
 #Install GO 
 WORKDIR /app/ 
-RUN curl -fL "https://go.dev/dl/go1.24.1.src.tar.gz" | tar -xz -C /app/core
+RUN curl -fL "https://go.dev/dl/go1.24.1.src.tar.gz" | tar -xzf -C /app/core
 
 
 # Copy data for add-on
