@@ -8,6 +8,14 @@ import (
 	"os"
 )
 
+type haConfig struct {
+	home_assistant_location string `json:"key1"`
+    allow_outside_connections bool `json:"key2"`
+    default_dashboard string `json:"key3"`
+    kiosk_account_access_token string `json:"key4"`
+}
+
+
 func handler(w http.ResponseWriter, r *http.Request) {
     w.WriteHeader(http.StatusNotFound)
 	fmt.Fprint(w, "Page not found")
@@ -24,7 +32,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	if( dashboard == nil ) {
 		//change this to pull in from config file
 		content, err := os.ReadFile("/data/options.json")
-		var data
+		var data haConfig
 		err = json.Unmarshal(content, &data)
 		dashboard := data.default_dashboard
 	}
