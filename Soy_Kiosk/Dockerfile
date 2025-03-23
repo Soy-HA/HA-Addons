@@ -10,8 +10,6 @@ WORKDIR /app/
 RUN curl -LO "https://go.dev/dl/go1.24.1.darwin-amd64.tar.gz"
 
 # Copy data for add-on
-COPY setupgo.sh OAuth.go /
 COPY setupgo.sh OAuth.go /app/
 RUN chmod a+x /app/setupgo.sh
-RUN chmod a+x /setupgo.sh
 CMD [ "./setupgo.sh" ]
