@@ -4,6 +4,7 @@ import (
     "fmt"
     "os"
 	"net/http"
+	"log"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -18,6 +19,10 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
         return
     }
     fmt.Fprintf(w, "<h1>%s</h1><div>%s</div>", p.Title, p.Body)
+}
+
+func loadPage(title string) (*Page, error) {
+	return nil, errors.New(http.StatusNotFound)
 }
 
 func main() {
