@@ -5,6 +5,6 @@ echo "go version"
 go version
 echo "go gocache"
 go env GOCACHE
-go build OAuth.go
+go build -a OAuth.go
 ./go/bin/OAuth
 ./data/OAuth
