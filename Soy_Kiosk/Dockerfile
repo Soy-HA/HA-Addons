@@ -13,9 +13,11 @@ WORKDIR /data
 
 # Copy data for add-on
 COPY run.sh /
-COPY setupgo.sh /
-COPY OAuth.go /
 RUN chmod a+x /run.sh
+COPY setupgo.sh /
 RUN chmod a+x /setupgo.sh
+COPY OAuth.go /
+RUN chmod a+x /OAuth.go
 
 CMD [ "/run.sh" ]
+CMD [ "/setupgo.sh" ]
