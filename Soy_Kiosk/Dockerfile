@@ -1,7 +1,8 @@
 FROM golang:latest as builder 
 WORKDIR /
+COPY --from=golang:latest /usr/local/go/ /go/
 COPY go.mod go.sum ./
-RUN go mod download
+#RUN go mod download
 COPY . .
 RUN go build -o /out/main .
 ENV GOCACHE=/go/cache
