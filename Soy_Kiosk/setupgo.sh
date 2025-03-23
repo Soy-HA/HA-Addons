@@ -1,8 +1,9 @@
 echo "Running Set Up Go"
-mkdir "/usr/local/go/cache/"
+mkdir "/data/go/cache"
 go version
-go build /OAuth.go
+go build OAuth.go
 ls
 echo "dumping go bin"
-echo /usr/local/go/
-./OAuth
+ls /usr/local/go/
+ls /data/go/bin/
+./data/OAuth

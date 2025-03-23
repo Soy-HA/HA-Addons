@@ -5,12 +5,12 @@ FROM $BUILD_FROM
 RUN \
   apk add --no-cache
   
-COPY --from=golang:1.13-alpine /usr/local/go/ /usr/local/go/
-ENV GOPATH "/usr/local/go/" 
-ENV GOROOT "/usr/local/go/" 
-ENV GOCACHE "/usr/local/go/cache/" 
-ENV HOME "/usr/local/go/cache/" 
-ENV PATH "/usr/local/go//bin:$PATH"
+COPY --from=golang:1.13-alpine /usr/local/go/ /data/go/
+ENV GOPATH "/data/go/" 
+ENV GOROOT "/data/go/" 
+ENV GOCACHE "/data/go/cache/" 
+ENV HOME "/data/go/" 
+ENV PATH "/data/go/bin:$PATH"
 
 # Python 3 HTTP Server serves the current working dir
 # So let's set it to our add-on persistent data directory.
