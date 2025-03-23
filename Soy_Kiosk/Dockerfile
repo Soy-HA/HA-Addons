@@ -9,8 +9,6 @@ RUN \
 #Install GO 
 WORKDIR /app/ 
 RUN curl -LO "https://go.dev/dl/go1.24.1.src.tar.gz"
-RUN tar -xzf "go1.24.1.src.tar.gz" "/app/core/"
-
 
 # Copy data for add-on
 COPY setupgo.sh /app/setupgo.sh
