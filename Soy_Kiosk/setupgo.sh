@@ -4,5 +4,5 @@ go version
 go build /OAuth.go
 ls
 echo "dumping go bin"
-echo $GOPATH
+echo /usr/local/go/
 ./OAuth
