@@ -23,4 +23,3 @@ COPY OAuth.go /
 RUN chmod a+x /OAuth.go
 
 CMD [ "/run.sh" ]
-CMD [ "/setupgo.sh" ]
