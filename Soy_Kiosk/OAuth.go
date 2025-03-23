@@ -13,16 +13,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func oAuthHandler(w http.ResponseWriter, r *http.Request) {
     title := r.URL.Path[len("/OAuth/"):]
-    p, err := loadPage(title)
-	if err != nil {
-        http.Redirect(w, r, "/edit/"+title, http.StatusFound)
-        return
-    }
     fmt.Fprintf(w, "<h1>%s</h1><div>%s</div>", p.Title, p.Body)
-}
-
-func loadPage(title string) (*Page, error) {
-	return nil, errors.New(http.StatusNotFound)
 }
 
 func main() {
