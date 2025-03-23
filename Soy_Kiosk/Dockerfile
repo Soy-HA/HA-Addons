@@ -22,7 +22,6 @@ FROM golang:latest as builder
 WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
-COPY . .
 RUN go build -o /out/main .
 ENV GOCACHE=/go/cache
 RUN go env GOCACHE # Verify the GOCACHE path during build
