@@ -1,7 +1,7 @@
-name: "Soys Handy Kiosk"
-description: "Home Assistant Kiosk Display Server"
-version: "1.0.0"
-slug: "soy_kiosk"
+name: "Hello world"
+description: "My first real add-on!"
+version: "1.1.0"
+slug: "hello_world"
 init: false
 arch:
   - aarch64
@@ -9,3 +9,6 @@ arch:
   - armhf
   - armv7
   - i386
+startup: services
+ports:
+  8000/tcp: 8000
