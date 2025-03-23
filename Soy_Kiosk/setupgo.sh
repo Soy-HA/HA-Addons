@@ -1,8 +1,6 @@
 echo "Running Set Up Go"
-mkdir "./data/go/"
-mkdir "./data/go/cache"
-./go/out/main
+export PATH=$PATH:/app/core/go/bin
 go version
 go env GOCACHE
-go build OAuth.go
-./data/go/bin/OAuth
+go build /app/OAuth.go
+./app/core/go/bin/OAuth
