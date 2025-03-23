@@ -1,6 +1,6 @@
 echo "Running Set Up Go"
-export PATH=$PATH:/go/bin
-export GOPATH=$GOPATH:/go/bin
+export PATH=$PATH:/app/go/bin
+export GOPATH=$GOPATH:/app/go/bin
 export GOCACHE=$GOCACHE:/data
 go version
 echo "build oauth.go"
