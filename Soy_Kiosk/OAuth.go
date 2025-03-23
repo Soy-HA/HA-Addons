@@ -12,15 +12,19 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func oAuthHandler(w http.ResponseWriter, r *http.Request) {
-    title := r.URL.Path[len("/OAuth/"):]
-	//need authorize
-	//need token
-	//need user info
-    fmt.Fprintf(w, "<h1>test</h1><div>%s</div>", title)
+    title := r.URL.Path[len("/Kiosk/"):]
+	queryParams := r.URL.Query()
+	
+	
+    fmt.Fprintf(w, "<h1>%s</h1><div>%s</div>", title, queryParams["dashboard"])
 }
 
 func main() {
-    http.HandleFunc("/", handler)
-    http.HandleFunc("/OAuth/", oAuthHandler)
+    http.HandleFunc("/Kiosk/", oAuthHandler)
     log.Fatal(http.ListenAndServe(":8080", nil))
 }
+
+//Future OAuth Stuff
+	//need authorize
+	//need token
+	//need user info
