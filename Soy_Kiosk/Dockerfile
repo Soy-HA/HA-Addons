@@ -5,8 +5,6 @@ FROM $BUILD_FROM
 RUN \
   apk add --no-cache
   
-WORKDIR /data  
-  
 COPY --from=golang:1.13-alpine /usr/local/go/ /data/go/
 ENV GOPATH "/data/go/" 
 ENV GOROOT "/data/go/" 
