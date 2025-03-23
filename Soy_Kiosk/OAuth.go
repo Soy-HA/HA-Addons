@@ -24,11 +24,11 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	if( dashboard == nil ) {
 		//change this to pull in from config file
 		content, err := os.ReadFile("/data/options.json")
-		var data Data
+		var data
 		err = json.Unmarshal(content, &data)
 		dashboard := data.default_dashboard
 	}
-    fmt.Fprintf(w, "<h1>%s</h1><div>%s</div>", title, queryParams["dashboard"])
+    fmt.Fprintf(w, "<h1>%s</h1><div>%s</div>", title, dashboard)
 }
 
 func main() {
