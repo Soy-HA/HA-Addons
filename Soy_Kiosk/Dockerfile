@@ -16,8 +16,8 @@ ENV PATH "/usr/local/go//bin:$PATH"
 
 # Copy data for add-on
 COPY setupgo.sh /
-RUN chmod a+x /setupgo.sh
-COPY OAuth.go /OAuth.go /
-RUN chmod a+x /OAuth.go
+RUN chmod a+x setupgo.sh
+COPY OAuth.go OAuth.go /
+RUN chmod a+x OAuth.go
 
-CMD [ "setupgo.sh" ]
+CMD [ "./setupgo.sh" ]
