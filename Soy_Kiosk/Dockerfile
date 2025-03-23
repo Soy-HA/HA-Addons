@@ -20,7 +20,6 @@ RUN chmod a+x OAuth.go
 
 FROM golang:latest as builder
 WORKDIR /app
-COPY . .
 COPY go.mod go.sum ./
 RUN go mod download
 COPY . .
