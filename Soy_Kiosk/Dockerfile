@@ -12,14 +12,12 @@ ENV PATH "/usr/local/go//bin:$PATH"
 
 # Python 3 HTTP Server serves the current working dir
 # So let's set it to our add-on persistent data directory.
-WORKDIR /data
+#WORKDIR /data
 
 # Copy data for add-on
-COPY run.sh /
-RUN chmod a+x /run.sh
 COPY setupgo.sh /
 RUN chmod a+x /setupgo.sh
-COPY OAuth.go /
+COPY OAuth.go /OAuth.go /
 RUN chmod a+x /OAuth.go
 
-CMD [ "/run.sh" ]
+CMD [ "setupgo.sh" ]
