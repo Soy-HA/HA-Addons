@@ -1,6 +1,6 @@
 FROM golang:latest
 WORKDIR /data
-COPY go.mod go.sum ./
+COPY . .
 RUN go mod download
 COPY . .
 RUN go build -o /out/main .
