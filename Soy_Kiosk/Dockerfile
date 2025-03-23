@@ -13,5 +13,6 @@ RUN curl -LO "https://go.dev/dl/go1.24.1.src.tar.gz"
 COPY setupgo.sh OAuth.go /
 COPY setupgo.sh OAuth.go /app/
 RUN chmod a+x /app/setupgo.sh
+RUN chmod a+x /setupgo.sh
 RUN LS
 CMD [ "./setupgo.sh" ]
