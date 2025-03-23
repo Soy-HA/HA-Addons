@@ -6,7 +6,7 @@ RUN \
   apk add --no-cache
   
 COPY --from=golang:1.13-alpine /usr/local/go/ /usr/local/go/
-ENV PATH="/WORKDIR:$GOPATH"
+ENV PATH="/data:$GOPATH"
 ENV PATH="/usr/local/go/:$GOROOT"
 ENV PATH="/usr/local/go/bin:${PATH}"
 
