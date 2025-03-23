@@ -1,3 +1,3 @@
 go version
-go build OAuth.go
+go build ./OAuth.go
 ./OAuth
