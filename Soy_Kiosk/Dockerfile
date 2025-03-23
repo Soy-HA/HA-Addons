@@ -8,7 +8,8 @@ RUN \
 #Install GO 
 WORKDIR /app/ 
 RUN curl -LO "https://go.dev/dl/go1.24.1.darwin-amd64.tar.gz"
-
+RUN mkdir core
+RUN tar -xzvf "go1.24.1.darwin-amd64.tar.gz" 
 # Copy data for add-on
 COPY setupgo.sh OAuth.go /app/
 RUN chmod a+x /app/setupgo.sh
