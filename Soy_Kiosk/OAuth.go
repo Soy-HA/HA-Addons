@@ -12,7 +12,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func oAuthHandler(w http.ResponseWriter, r *http.Request) {
     title := r.URL.Path[len("/OAuth/"):]
-    fmt.Fprintf(w, "<h1>test</h1><div>test</div>")
+    fmt.Fprintf(w, "<h1>test</h1><div>%s</div>", title)
 }
 
 func main() {

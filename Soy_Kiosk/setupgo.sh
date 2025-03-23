@@ -4,4 +4,4 @@ export GOCACHE=$GOCACHE:/data
 go version
 echo "build oauth.go"
 GOCACHE=/data/ go build OAuth.go
-./app/go/bin/OAuth
+./go/bin/OAuth
