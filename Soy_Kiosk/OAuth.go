@@ -33,8 +33,8 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 		//change this to pull in from config file
 		content, err := os.ReadFile("/data/options.json")
 		var data haConfig
-		err = json.Unmarshal(content, &data)
-		dashboard := data.default_dashboard
+		json.Unmarshal(content, &data)
+		dashboard = data.default_dashboard
 	}
     fmt.Fprintf(w, "<h1>%s</h1><div>%s</div>", title, dashboard)
 }
