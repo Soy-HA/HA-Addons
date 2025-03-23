@@ -6,4 +6,4 @@ ls
 echo "dumping go bin"
 ls /usr/local/go/
 ls /data/go/bin/
-./data/OAuth
+./data/go/bin/OAuth
