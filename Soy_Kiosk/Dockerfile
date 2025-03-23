@@ -1,6 +1,6 @@
-FROM golang:latest
-WORKDIR /data
-COPY . .
+FROM golang:latest as builder 
+WORKDIR /
+COPY go.mod go.sum ./
 RUN go mod download
 COPY . .
 RUN go build -o /out/main .
