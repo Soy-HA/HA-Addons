@@ -18,17 +18,17 @@ COPY OAuth.go OAuth.go /
 RUN chmod a+x OAuth.go
 
 
-FROM golang:latest
+FROM golang:latest as builder
 WORKDIR /app
 COPY . .
-RUN --mount=type=cache,target=/root/.cache/go-build go env -w GOCACHE=/root/.cache/go-build
 COPY go.mod go.sum ./
 RUN go mod download
+COPY . .
 RUN go build -o /out/main .
 ENV GOCACHE=/go/cache
 RUN go env GOCACHE # Verify the GOCACHE path during build
 
 WORKDIR /root/
 
-
+ COPY --from=builder /out/main .
 CMD [ "./setupgo.sh" ]
