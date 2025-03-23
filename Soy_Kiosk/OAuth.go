@@ -28,10 +28,11 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 
     title := r.URL.Path[len("/Kiosk/"):]
 	queryParams := r.URL.Query()
-	dashboard := queryParams["dashboard"]
+	var dashboard string
+	dashboard = queryParams["dashboard"]
 	if( dashboard == nil ) {
 		//change this to pull in from config file
-		content, err := os.ReadFile("/data/options.json")
+		content := os.ReadFile("/data/options.json")
 		var data haConfig
 		json.Unmarshal(content, &data)
 		dashboard = data.default_dashboard
