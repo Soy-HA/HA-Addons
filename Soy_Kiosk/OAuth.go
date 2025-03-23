@@ -28,8 +28,8 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 
     title := r.URL.Path[len("/Kiosk/"):]
 	queryParams := r.URL.Query()
-	var dashboard string
-	dashboard = queryParams.dashboard
+	var dashboard string 
+	dashboard = queryParams.dashboard.value
 	if( dashboard == "" ) {
 		//change this to pull in from config file
 		content, err := os.ReadFile("/data/options.json")
