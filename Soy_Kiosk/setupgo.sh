@@ -1,10 +1,5 @@
 echo "Running Set Up Go"
-ls
-echo "dumping /app/"
-ls /app/
-cd app/
-mkdir core/
-cd ../
+mkdir core
 tar -xzf "go1.24.1.darwin-amd64.tar.gz" /app/core/
 export PATH=$PATH:/app/core/go/bin
 ls /app/core/go/
