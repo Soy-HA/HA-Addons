@@ -1,5 +1,6 @@
 #!/usr/bin/with-contenv bashio
+VERSION="$(bashio::config 'version')"
 
-echo "Hello world!"
+echo "Starting a new instance $version"
 
 ./setupgo.sh
