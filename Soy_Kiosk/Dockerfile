@@ -1,3 +1,15 @@
+FROM golang:latest as builder
+WORKDIR /app
+COPY go.mod go.sum ./
+RUN go mod download
+COPY . .
+RUN go build -o /out/main .
+ENV GOCACHE=/go/cache
+RUN go env GOCACHE # Verify the GOCACHE path during build
+
+WORKDIR /root/
+
+
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
@@ -16,18 +28,6 @@ COPY setupgo.sh /
 RUN chmod a+x setupgo.sh
 COPY OAuth.go OAuth.go /
 RUN chmod a+x OAuth.go
-
-
-FROM golang:latest as builder
-WORKDIR /app
-COPY go.mod go.sum ./
-RUN go mod download
-COPY . .
-RUN go build -o /out/main .
-ENV GOCACHE=/go/cache
-RUN go env GOCACHE # Verify the GOCACHE path during build
-
-WORKDIR /root/
 
  COPY --from=builder /out/main .
 CMD [ "./setupgo.sh" ]
