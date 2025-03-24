@@ -25,6 +25,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func relURLtoAbsURL(inStr string) string {
+	fmt.Println(string)
 	return "http://homeassistant.local:8123" + inStr
 }
 
@@ -77,7 +78,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
     if err != nil {
       // handle error
     }
-	sb = re.ReplaceAllStringFunc(sb, relURLtoAbsURL)
+	re.ReplaceAllStringFunc(sb, relURLtoAbsURL)
 	
 	
 	//write it out
