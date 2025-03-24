@@ -48,7 +48,6 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	resp, err := http.Get(url)
 	if err != nil {
 		fmt.Println("Error fetching URL:", err)
-		os.Exit(1)
 	}
 	defer resp.Body.Close()
 
@@ -60,10 +59,9 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		fmt.Println("Error reading response body:", err)
-		os.Exit(1)
 	}
 
-	fmt.Println(string(body))
+	fmt.Fprintf(w,"%s",(string(body)))
 	
 }
 
