@@ -7,8 +7,8 @@ import (
 	"encoding/json"
 	"os"
 	"regexp"
-	/*"io"
-	"bytes"*/
+	"io"
+	/*"bytes"*/
 )
 
 type haConfig struct {
@@ -22,6 +22,10 @@ type haConfig struct {
 func handler(w http.ResponseWriter, r *http.Request) {
     w.WriteHeader(http.StatusNotFound)
 	fmt.Fprint(w, "Page not found")
+}
+
+func relURLtoAbsURL(inStr string){
+	return "http://homeassistant.local:8123" + inStr
 }
 
 func oAuthHandler(w http.ResponseWriter, r *http.Request) {
@@ -66,14 +70,14 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
       // handle error
     }
-	stripBar.ReplaceAll(sb, "")
+	stripBar.ReplaceAll(sb, " ")
 	
 	//rewrite page with absolute links
 	re, err := regexp.Compile(`/^[^\/]+\/[^\/].*$|^\/[^\/].*$/gmi`)
     if err != nil {
       // handle error
     }
-	re.ReplaceAllFunc(sb, relURLtoAbsURL)
+	re.ReplaceAllStringFunc(sb, relURLtoAbsURL)
 	
 	
 	//write it out
@@ -81,9 +85,6 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	
 }
 
-func relURLtoAbsURL(inStr string){
-	return "http://homeassistant.local:8123" + inStr
-}
 func main() {
     http.HandleFunc("/Kiosk/", oAuthHandler)
     log.Fatal(http.ListenAndServe(":8080", nil))
