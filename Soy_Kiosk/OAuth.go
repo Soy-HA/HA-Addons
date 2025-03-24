@@ -48,7 +48,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	
 	
 	jsonStr := map[string]string{"type": "auth", "acess_token": access_token}
-	jsonValue, _ := json.Marshal(values)
+	jsonValue, _ := json.Marshal(jsonStr)
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonValue))
 	//req.Header.Set("X-Custom-Header", "myvalue")
     req.Header.Set("Content-Type", "application/json")
