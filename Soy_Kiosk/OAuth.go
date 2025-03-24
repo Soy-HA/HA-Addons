@@ -47,7 +47,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	
 	
 	var jsonStr = []byte(`{"type": "auth", "access_token": "` + access_token + `"}`)
-	erq, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
+	req, err := http.NewRequest("POST", url, byte.NewBuffer(jsonStr))
 	//req.Header.Set("X-Custom-Header", "myvalue")
     req.Header.Set("Content-Type", "application/json")
 
