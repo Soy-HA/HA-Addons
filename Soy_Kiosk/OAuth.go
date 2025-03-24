@@ -6,8 +6,8 @@ import (
 	"log"
 	"encoding/json"
 	"os"
-	"io"
-	"bytes"
+	/*"io"
+	"bytes"*/
 )
 
 type haConfig struct {
@@ -42,7 +42,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 		json.Unmarshal(content, &data)
 		dashboard = data.default_dashboard
 	}
-	//Authethenicate user
+	/*//Authethenicate user
 	access_token := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI2YzQ4MmI1MTIxZmU0NGVhOTM2ZDQxOTRkMWEzZWExZSIsImlhdCI6MTc0Mjc3Nzk5NSwiZXhwIjoyMDU4MTM3OTk1fQ.MlljcluzEDUmMQgGoB6-IjOu16aJmB-MuMF2_nNgTLA"
 	url := "ws://homeassistant.local:8123/api/websocket"
 	
@@ -53,7 +53,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	if err = ws.Handshake(); err != nil {
 		//handle error
-	}
+	}*/
 	
 	//https://yalantis.com/blog/how-to-build-websockets-in-go/
 	
