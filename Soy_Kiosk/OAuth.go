@@ -63,13 +63,14 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Fprintf(w,`
 	<iframe width='%s' height='%s' src='%s' title='ha-main-window' id='ha-main-window' name='ha-main-window'></iframe>
-	<script>
+	<script type='text/javascript'>
 		function modifyIframe() {
-			var iframe = document.getElementById('myIframe');
+			var iframe = document.getElementById('ha-main-window');
 			var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 			var body = iframeDocument.body;
 			iframeDocument.querySelectorAll('input[type="ha sidebar"]')[0].innerHTML = "";
 		}
+		modifyIframe();
     </script>
 	`,"100%","100%",url)
 	
