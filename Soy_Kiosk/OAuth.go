@@ -26,7 +26,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func relURLtoAbsURL(inStr string) string {
 	fmt.Println(inStr)
-	return '"http://homeassistant.local:8123' + inStr[1:]
+	test := inStr[1:]
+	return '"http://homeassistant.local:8123' + test
 }
 
 func oAuthHandler(w http.ResponseWriter, r *http.Request) {
