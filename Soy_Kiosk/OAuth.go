@@ -58,7 +58,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	
 	//We Read the response body on the line below.
-	body, err := io.ReadAll(resp)
+	body, err := io.ReadAll(resp.body)
 	if err != nil {
 		//handle error
 	}
