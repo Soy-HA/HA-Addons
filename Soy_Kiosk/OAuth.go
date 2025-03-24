@@ -62,16 +62,17 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	url := "http://homeassistant.local:8123/dashboard-kiosk/" // Replace with the desired URL
 
 	fmt.Fprintf(w,`
+	<html><head></head><body>
 	<iframe width='%s' height='%s' src='%s' title='ha-main-window' id='ha-main-window' name='ha-main-window'></iframe>
 	<script type='text/javascript'>
 		function modifyIframe() {
 			var iframe = document.getElementById('ha-main-window');
 			var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 			var body = iframeDocument.body;
-			iframeDocument.querySelectorAll('input[type="ha sidebar"]')[0].innerHTML = "";
+			iframeDocument.querySelectorAll('input["sidebar"]')[0].innerHTML = "";
 		}
 		modifyIframe();
-    </script>
+    </script></body></html>
 	`,"100%","100%",url)
 	
 }
