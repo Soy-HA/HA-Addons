@@ -59,9 +59,19 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	
 	//Send Dashboard
 		//TEMP for funsies. Just seeing what happens if I jsut throw the dashboard in here lololol
-	url := "http://homeassistant.local:8123/" // Replace with the desired URL
+	url := "http://homeassistant.local:8123/dashboard-kiosk/" // Replace with the desired URL
 
-	fmt.Fprintf(w,"<iframe src='%s' title='ha-main-window' id='dashboard' name='dashboard'></iframe>",url)
+	fmt.Fprintf(w,`
+	<iframe src='%s' title='ha-main-window' id='ha-main-window' name='ha-main-window'></iframe>
+	<script>
+		function modifyIframe() {
+			var iframe = document.getElementById('myIframe');
+			var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+			var body = iframeDocument.body;
+			iframeDocument.querySelectorAll('input[type="ha sidebar"]')[0].innerHTML = "";
+		}
+    </script>
+	`,url)
 	
 }
 

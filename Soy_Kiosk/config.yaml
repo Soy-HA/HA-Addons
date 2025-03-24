@@ -22,3 +22,6 @@ schema:
     default_dashboard: "str?"
     kiosk_account_access_token: "str?"
     
+#Add TO CONFIG   
+#http:
+#  use_x_frame_options: false
