@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"os"
 	"io"
+	"bytes"
 )
 
 type haConfig struct {
@@ -47,7 +48,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	
 	
 	var jsonStr = []byte(`{"type": "auth", "access_token": "` + access_token + `"}`)
-	req, err := http.NewRequest("POST", url, byte.NewBuffer(jsonStr))
+	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
 	//req.Header.Set("X-Custom-Header", "myvalue")
     req.Header.Set("Content-Type", "application/json")
 
@@ -69,7 +70,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 		//TEMP for funsies. Just seeing what happens if I jsut throw the dashboard in here lololol
 	url := "http://homeassistant.local:8123/" // Replace with the desired URL
 
-	fmt.Fprintf(w,"<iframe src='%s' title='dashboard' id='dashboard' name='dashboard'></iframe>",url)
+	fmt.Fprintf(w,"<iframe src='%s' title='ha-main-window' id='dashboard' name='dashboard'></iframe>",url)
 	
 }
 
