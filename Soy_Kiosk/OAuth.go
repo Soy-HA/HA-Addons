@@ -27,13 +27,16 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	//use ip, _, err := net.SplitHostPort(r.RemoteAddr)
 
 
-    title := r.URL.Path[len("/Kiosk/"):]
-	queryParams := r.URL.Query()
+    //title := r.URL.Path[len("/Kiosk/"):]
+	//queryParams := r.URL.Query()
 	var dashboard string 
 	//dashboard = string.Join(queryParams["dashboard"])
 	if( dashboard == "" ) {
-		//change this to pull in from config file
 		content, err := os.ReadFile("/data/options.json")
+		if err != nil {
+			fmt.Println("Error Parsing Json", err)
+			os.Exit(1)
+		}
 		var data haConfig
 		json.Unmarshal(content, &data)
 		dashboard = data.default_dashboard
