@@ -26,8 +26,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func relURLtoAbsURL(inStr string) string {
 	fmt.Println(inStr)
-	test := inStr[1:]
-	return "\"http://homeassistant.local:8123" + test
+	return "\"http://homeassistant.local:8123" + inStr[1:]
 }
 
 func oAuthHandler(w http.ResponseWriter, r *http.Request) {
@@ -75,7 +74,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	sb = stripBar.ReplaceAllString(sb, " ")
 	
 	//rewrite page with absolute links
-	re, err := regexp.Compile(`".?\..?"`)
+	re, err := regexp.Compile(`".+?\..+?"`)
     if err != nil {
       // handle error
     }
