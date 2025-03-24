@@ -6,6 +6,7 @@ import (
 	"log"
 	"encoding/json"
 	"os"
+	"io"
 )
 
 type haConfig struct {
