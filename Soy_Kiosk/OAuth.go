@@ -47,7 +47,8 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	url := "http://homeassistant.local:8123/api/websocket"
 	
 	
-	var jsonStr = []bytes(`{"type": "auth", "access_token": "` + access_token + `"}`)
+	jsonStr := map[string]string{"type": "auth", "acess_token": access_token}
+	jsonValue, _ := json.Marshal(values)
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
 	//req.Header.Set("X-Custom-Header", "myvalue")
     req.Header.Set("Content-Type", "application/json")
