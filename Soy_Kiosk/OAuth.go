@@ -43,25 +43,10 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	//Authethenicate user
 	//Send Dashboard
+		//TEMP for funsies. Just seeing what happens if I jsut throw the dashboard in here lololol
 	url := "http://homeassistant.local:8123/dashboard-kiosk/" // Replace with the desired URL
 
-	resp, err := http.Get(url)
-	if err != nil {
-		fmt.Println("Error fetching URL:", err)
-	}
-	defer resp.Body.Close()
-
-	if resp.StatusCode != http.StatusOK {
-		fmt.Println("HTTP error:", resp.Status)
-		os.Exit(1)
-	}
-
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		fmt.Println("Error reading response body:", err)
-	}
-
-	fmt.Fprintf(w,"%s",(string(body)))
+	fmt.Fprintf(w,"<iframe src='%s' title='dashboard' id='dashboard' name='dashboard'></iframe>",(string(body)))
 	
 }
 
