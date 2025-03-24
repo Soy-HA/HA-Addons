@@ -4,6 +4,6 @@ export GOPATH=$GOPATH:/app/go/bin
 export GOCACHE=$GOCACHE:/data
 go version
 echo "build oauth.go"
-GOCACHE=/data/ go build OAuth.go
+GOCACHE=/data/ go build -tags debug OAuth.go
 echo "Built, starting"
 ./OAuth

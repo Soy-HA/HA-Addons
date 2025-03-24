@@ -6,7 +6,6 @@ import (
 	"log"
 	"encoding/json"
 	"os"
-	"io"
 )
 
 type haConfig struct {
@@ -46,7 +45,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 		//TEMP for funsies. Just seeing what happens if I jsut throw the dashboard in here lololol
 	url := "http://homeassistant.local:8123/dashboard-kiosk/" // Replace with the desired URL
 
-	fmt.Fprintf(w,"<iframe src='%s' title='dashboard' id='dashboard' name='dashboard'></iframe>",(string(body)))
+	fmt.Fprintf(w,"<iframe src='%s' title='dashboard' id='dashboard' name='dashboard'></iframe>",url))
 	
 }
 
