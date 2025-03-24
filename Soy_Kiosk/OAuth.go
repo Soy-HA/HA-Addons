@@ -58,7 +58,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	
 	//We Read the response body on the line below.
-	body, err := io.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp)
 	if err != nil {
 		//handle error
 	}
@@ -74,11 +74,11 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	sb = stripBar.ReplaceAllString(sb, " ")
 	
 	//rewrite page with absolute links
-	re, err := regexp.Compile(`a`)
+	re, err := regexp.Compile(`/^[^\/]+\/[^\/].*$|^\/[^\/].*$/gmi`)
     if err != nil {
       // handle error
     }
-	re.ReplaceAllStringFunc(sb, relURLtoAbsURL)
+	sb = re.ReplaceAllStringFunc(sb, relURLtoAbsURL)
 	
 	
 	//write it out
