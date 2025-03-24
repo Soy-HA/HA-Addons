@@ -66,7 +66,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
       // handle error
     }
-	re.ReplaceAll(sb, "")
+	stripBar.ReplaceAll(sb, "")
 	
 	//rewrite page with absolute links
 	re, err := regexp.Compile(`/^[^\/]+\/[^\/].*$|^\/[^\/].*$/gmi`)
@@ -81,8 +81,8 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	
 }
 
-func relURLtoAbsURL(in string) (string) {
-	return "http://homeassistant.local:8123" + string
+func relURLtoAbsURL(inStr string){
+	return "http://homeassistant.local:8123" + inStr
 }
 func main() {
     http.HandleFunc("/Kiosk/", oAuthHandler)
