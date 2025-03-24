@@ -46,26 +46,16 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	access_token := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI2YzQ4MmI1MTIxZmU0NGVhOTM2ZDQxOTRkMWEzZWExZSIsImlhdCI6MTc0Mjc3Nzk5NSwiZXhwIjoyMDU4MTM3OTk1fQ.MlljcluzEDUmMQgGoB6-IjOu16aJmB-MuMF2_nNgTLA"
 	url := "ws://homeassistant.local:8123/api/websocket"
 	
+	//Set Up Websocket Server
+	ws, err := NewHandler(w,r)
+	if err != nil {
 	
-	jsonStr := map[string]string{"type": "auth", "acess_token": access_token}
-	jsonValue, _ := json.Marshal(jsonStr)
-	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonValue))
-	//req.Header.Set("Authorization", bytes.NewBuffer(jsonValue)
-    //req.Header.Set("Content-Type", "application/json")
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    if err != nil {
-        panic(err)
-    }
-    defer resp.Body.Close()
-
-    fmt.Println("response Status:", resp.Status)
-    fmt.Println("response Headers:", resp.Header)
-    body, _ := io.ReadAll(resp.Body)
-    fmt.Println("response Body:", string(body))
+	}
+	if err = ws.Handshake(); err != nil {
+		//handle error
+	}
 	
-	
+	//https://yalantis.com/blog/how-to-build-websockets-in-go/
 	
 	//Send Dashboard
 		//TEMP for funsies. Just seeing what happens if I jsut throw the dashboard in here lololol
