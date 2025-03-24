@@ -81,7 +81,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	
 	
 	//write it out
-	fmt.Fprintf(w,"%s",body)
+	fmt.Fprintf(w,"%s",sb)
 	
 }
 
