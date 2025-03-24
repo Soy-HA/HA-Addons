@@ -6,6 +6,7 @@ import (
 	"log"
 	"encoding/json"
 	"os"
+	"regexp"
 	/*"io"
 	"bytes"*/
 )
@@ -42,41 +43,47 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 		json.Unmarshal(content, &data)
 		dashboard = data.default_dashboard
 	}
-	/*//Authethenicate user
-	access_token := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI2YzQ4MmI1MTIxZmU0NGVhOTM2ZDQxOTRkMWEzZWExZSIsImlhdCI6MTc0Mjc3Nzk5NSwiZXhwIjoyMDU4MTM3OTk1fQ.MlljcluzEDUmMQgGoB6-IjOu16aJmB-MuMF2_nNgTLA"
-	url := "ws://homeassistant.local:8123/api/websocket"
-	
-	//Set Up Websocket Server
-	ws, err := NewHandler(w,r)
-	if err != nil {
-	
-	}
-	if err = ws.Handshake(); err != nil {
-		//handle error
-	}*/
-	
-	//https://yalantis.com/blog/how-to-build-websockets-in-go/
 	
 	//Send Dashboard
-		//TEMP for funsies. Just seeing what happens if I jsut throw the dashboard in here lololol
 	url := "http://homeassistant.local:8123/dashboard-kiosk/" // Replace with the desired URL
+	//get page
+	resp, err := http.Get(url)
+	if err != nil {
+	   //handle error or something
+	}
+	
+	//We Read the response body on the line below.
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		//handle error
+	}
+	//Convert the body to type string
+	sb := string(body)
 
-	fmt.Fprintf(w,`
-	<html><head></head><body>
-	<iframe width='%s' height='%s' src='%s' title='ha-main-window' id='ha-main-window' name='ha-main-window'></iframe>
-	<script type='text/javascript'>
-		function modifyIframe() {
-			var iframe = document.getElementById('ha-main-window');
-			var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-			var body = iframeDocument.body;
-			iframeDocument.querySelectorAll('[type=ha sidebar]')[0].innerHTML = "";
-		}
-		modifyIframe();
-    </script></body></html>
-	`,"100%","100%",url)
+
+	//strip side bar
+	stripBar, err := regexp.Compile(`<ha-sidebar>*</ha-sidebar>`)
+	if err != nil {
+      // handle error
+    }
+	re.ReplaceAll(sb, "")
+	
+	//rewrite page with absolute links
+	re, err := regexp.Compile(`/^[^\/]+\/[^\/].*$|^\/[^\/].*$/gmi`)
+    if err != nil {
+      // handle error
+    }
+	re.ReplaceAllFunc(sb, relURLtoAbsURL)
+	
+	
+	//write it out
+	fmt.Fprintf(w,"%s",body)
 	
 }
 
+func relURLtoAbsURL(in string) (string) {
+	return "http://homeassistant.local:8123" + string
+}
 func main() {
     http.HandleFunc("/Kiosk/", oAuthHandler)
     log.Fatal(http.ListenAndServe(":8080", nil))
