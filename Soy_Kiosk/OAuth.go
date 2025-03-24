@@ -49,7 +49,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	
 	jsonStr := map[string]string{"type": "auth", "acess_token": access_token}
 	jsonValue, _ := json.Marshal(values)
-	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
+	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonValue))
 	//req.Header.Set("X-Custom-Header", "myvalue")
     req.Header.Set("Content-Type", "application/json")
 
@@ -69,7 +69,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	
 	//Send Dashboard
 		//TEMP for funsies. Just seeing what happens if I jsut throw the dashboard in here lololol
-	url := "http://homeassistant.local:8123/" // Replace with the desired URL
+	url = "http://homeassistant.local:8123/" // Replace with the desired URL
 
 	fmt.Fprintf(w,"<iframe src='%s' title='ha-main-window' id='dashboard' name='dashboard'></iframe>",url)
 	
