@@ -17,7 +17,7 @@ RUN chmod a+x /app/setupgo.sh
 RUN export PATH=$PATH:/app/go/bin
 RUN export GOPATH=$GOPATH:/app/go/bin
 RUN export GOCACHE=$GOCACHE:/data
-RUN GOCACHE=/data/ go build -tags debug OAuth.go
+RUN GOCACHE=/data/ go build -tags debug /app/OAuth.go
 
 
 
