@@ -44,14 +44,14 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	//Authethenicate user
 	access_token := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI2YzQ4MmI1MTIxZmU0NGVhOTM2ZDQxOTRkMWEzZWExZSIsImlhdCI6MTc0Mjc3Nzk5NSwiZXhwIjoyMDU4MTM3OTk1fQ.MlljcluzEDUmMQgGoB6-IjOu16aJmB-MuMF2_nNgTLA"
-	url := "http://homeassistant.local:8123/api/websocket"
+	url := "ws://homeassistant.local:8123/api/websocket"
 	
 	
 	jsonStr := map[string]string{"type": "auth", "acess_token": access_token}
 	jsonValue, _ := json.Marshal(jsonStr)
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonValue))
-	//req.Header.Set("X-Custom-Header", "myvalue")
-    req.Header.Set("Content-Type", "application/json")
+	//req.Header.Set("Authorization", bytes.NewBuffer(jsonValue)
+    //req.Header.Set("Content-Type", "application/json")
 
     client := &http.Client{}
     resp, err := client.Do(req)
