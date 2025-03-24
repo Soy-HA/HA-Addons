@@ -29,7 +29,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
     title := r.URL.Path[len("/Kiosk/"):]
 	queryParams := r.URL.Query()
 	var dashboard string 
-	dashboard = strings.Join(queryParams["dashboard"])
+	//dashboard = string.Join(queryParams["dashboard"])
 	if( dashboard == "" ) {
 		//change this to pull in from config file
 		content, err := os.ReadFile("/data/options.json")
@@ -37,7 +37,30 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 		json.Unmarshal(content, &data)
 		dashboard = data.default_dashboard
 	}
-    fmt.Fprintf(w, "<h1>%s</h1><div>%s</div>", title, dashboard)
+	//Authethenicate user
+	//Send Dashboard
+	url := "http://homeassistant.local:8123/dashboard-kiosk/" // Replace with the desired URL
+
+	resp, err := http.Get(url)
+	if err != nil {
+		fmt.Println("Error fetching URL:", err)
+		os.Exit(1)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		fmt.Println("HTTP error:", resp.Status)
+		os.Exit(1)
+	}
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println("Error reading response body:", err)
+		os.Exit(1)
+	}
+
+	fmt.Println(string(body))
+	
 }
 
 func main() {
