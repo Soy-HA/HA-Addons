@@ -24,7 +24,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Page not found")
 }
 
-func relURLtoAbsURL(inStr string){
+func relURLtoAbsURL(inStr string) string {
 	return "http://homeassistant.local:8123" + inStr
 }
 
@@ -70,7 +70,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
       // handle error
     }
-	stripBar.ReplaceAll(sb, " ")
+	stripBar.ReplaceAllString(sb, " ")
 	
 	//rewrite page with absolute links
 	re, err := regexp.Compile(`/^[^\/]+\/[^\/].*$|^\/[^\/].*$/gmi`)
