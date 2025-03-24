@@ -69,7 +69,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 			var iframe = document.getElementById('ha-main-window');
 			var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 			var body = iframeDocument.body;
-			iframeDocument.querySelectorAll('["sidebar"]')[0].innerHTML = "";
+			iframeDocument.querySelectorAll('[sidebar]')[0].innerHTML = "";
 			iframeDocument.querySelectorAll('[type="ha sidebar"]')[0].innerHTML = "";
 		}
 		modifyIframe();
