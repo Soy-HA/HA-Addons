@@ -70,14 +70,14 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
       // handle error
     }
-	stripBar.ReplaceAllString(sb, " ")
+	sb = stripBar.ReplaceAllString(sb, " ")
 	
 	//rewrite page with absolute links
 	re, err := regexp.Compile(`/^[^\/]+\/[^\/].*$|^\/[^\/].*$/gmi`)
     if err != nil {
       // handle error
     }
-	re.ReplaceAllStringFunc(sb, relURLtoAbsURL)
+	sb = re.ReplaceAllStringFunc(sb, relURLtoAbsURL)
 	
 	
 	//write it out
