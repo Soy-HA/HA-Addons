@@ -25,7 +25,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func relURLtoAbsURL(inStr string) string {
-	fmt.Println(string)
+	fmt.Println(inStr)
 	return "http://homeassistant.local:8123" + inStr
 }
 
