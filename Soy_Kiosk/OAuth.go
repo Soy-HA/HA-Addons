@@ -83,6 +83,7 @@ func oAuthHandler(w http.ResponseWriter, r *http.Request) {
 	
 	//write it out
 	w.Header().Set("Access-Control-Allow-Origin", "http://*")
+	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w,"%s",sb)
 	
 }
